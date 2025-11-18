@@ -50,9 +50,11 @@ public class Tienda {
         }   
 
     }
- 
-    public static void IngresarProducto(){
 
+    public static void IngresarProducto(){
+        System.out.println("\n /******************************************************");
+        System.out.println("                  Ingreso de nuevo producto             ");
+        System.out.println("******************************************************/");
         System.out.print("Ingrese nombre del nuevo producto: ");
         String producto = Ahuyama.nextLine();
         int pos = BuscarProducto(producto);
@@ -88,15 +90,19 @@ public class Tienda {
             System.out.print("No se ha registrado ventas");
             return;
         }
-
-        System.out.println("Reporte de ventas");
+        System.out.println("\n /******************************************************");
+        System.out.println("                     Reporte de ventas                  ");
+        System.out.println("******************************************************/");
         for(int i = 0; i < Totales_Vendidos; i++){
             System.out.println("Producto: " + Nombre_ventas[i] + " Cantidad vendida: " + Cantidad_Ventas[i] + " Total de venta: " + Total_Ventas[i]);
         }
     }
 
     public static void RealizarVenta(){
-        System.out.print("Ingrese el nombre del producto:");
+        System.out.println("\n /******************************************************");
+        System.out.println("                     Realizar venta                    ");
+        System.out.println("******************************************************/");
+        System.out.println("Ingrese el nombre del producto:");
         String producto = Ahuyama.nextLine();
 
         int pos = BuscarProducto(producto);
@@ -125,6 +131,9 @@ public class Tienda {
         System.out.println("venta realizada exitosamente" + total);
     }
     public static void Reporte_de_Stock(){
+        System.out.println("\n /******************************************************");
+        System.out.println("                     Reporte de Stock                  ");
+        System.out.println("******************************************************/");
         if (totalProductos == 0){
         System.out.println("No se encuentran producto registrado");
         return;
