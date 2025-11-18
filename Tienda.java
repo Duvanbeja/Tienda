@@ -32,11 +32,14 @@ public class Tienda {
             if(option == 1){
                 IngresarProducto();
             }
+            if(option == 2){
+                RealizarVenta();
+            }
             if(option == 3){
                 reporte_de_ventas();
             }
 
-        }
+        }   
 
     }
  
@@ -83,7 +86,42 @@ public class Tienda {
             System.out.println("Producto: " + Nombre_ventas[i] + " Cantidad vendida: " + Cantidad_Ventas[i] + " Total de venta: " + Total_Ventas[i]);
         }
     }
- 
+
+
+    
+    public static void RealizarVenta(){
+        System.out.print("Ingrese el nombre del producto:");
+        String producto = Ahuyama.nextLine();
+
+    int pos = BuscarProducto(producto);
+    if (pos == -1){
+        System.out.println("Producto no registrado");
+        return;
+    }
+
+    System.out.println("Ingrese la cantidad de venta");
+    int cantidadVendida = Ahuyama.nextInt();
+    Ahuyama.nextLine();
+    if (cantidadVendida <=0){
+    System.out.println("Cantidad Invalida");
+    return;
+    }
+    if (cantidadVendida > cantidad[pos]) {
+    System.out.println("Stock insuficiente" + cantidad[pos]);
+    return;
+    }
+    int total = cantidadVendida * precios[pos];
+    cantidad[pos]-= cantidadVendida;
+    Nombre_ventas[Totales_Vendidos]= producto;
+    Cantidad_Ventas[Totales_Vendidos]= cantidadVendida;
+    Total_Ventas[Totales_Vendidos]= total;
+    Totales_Vendidos ++;
+
+    System.out.println("venta realizada exitosamente" + total);
+
+    }
+
+
     public static int BuscarProducto(String producto){
 
         for(int i = 0; i < totalProductos; i++){
