@@ -17,14 +17,14 @@ public class Tienda {
         int option = 0;
  
         while(option != 5){
-            System.out.println ("Bienvenido a la tienda Douglas");
+            System.out.println("Bienvenido a la tienda Douglas");
             System.out.println("¿Que deseas hacer?");
-            System.out.println ("1 Ingresar nuevo producto");
-            System.out.println ("2 Realizar venta");
-            System.out.println ("3 Generar reporte de venta");
-            System.out.println ("4 Generar reporte de stock");
-            System.out.println ("5 Salir");
-            System.out.print ("Elija que deseas hacer: ");
+            System.out.println("1 Ingresar nuevo producto");
+            System.out.println("2 Realizar venta");
+            System.out.println("3 Generar reporte de venta");
+            System.out.println("4 Generar reporte de stock");
+            System.out.println("5 Salir");
+            System.out.println("Elija que deseas hacer: ");
            
             option = Ahuyama.nextInt();
             Ahuyama.nextLine();
@@ -55,7 +55,7 @@ public class Tienda {
         System.out.println("\n /******************************************************");
         System.out.println("                  Ingreso de nuevo producto             ");
         System.out.println("******************************************************/");
-        System.out.print("Ingrese nombre del nuevo producto: ");
+        System.out.println("Ingrese nombre del nuevo producto: ");
         String producto = Ahuyama.nextLine();
         int pos = BuscarProducto(producto);
 
@@ -67,7 +67,6 @@ public class Tienda {
         System.out.println("Ingrese la cantidad que deseas agregar: ");
         int cantidades = Ahuyama.nextInt();
         System.out.println("Ingrese el precio del producto: ");
-        
         int precio = Ahuyama.nextInt();
         Ahuyama.nextLine();
  
@@ -87,7 +86,7 @@ public class Tienda {
     public static void reporte_de_ventas() {
 
         if (Totales_Vendidos == 0) {
-            System.out.print("No se ha registrado ventas");
+            System.out.println("No se ha registrado ventas");
             return;
         }
         System.out.println("\n /******************************************************");
@@ -118,7 +117,7 @@ public class Tienda {
             return;
         }
         if (cantidadVendida > cantidad[pos]) {
-            System.out.println("Stock insuficiente" + cantidad[pos]);
+            System.out.println(" Stock insuficiente " + cantidad[pos]);
             return;
         }
         int total = cantidadVendida * precios[pos];
@@ -141,7 +140,7 @@ public class Tienda {
         System.out.println("Este es tu reporte de stock");
 
         for (int i = 0; i < totalProductos; i++){
-            System.out.println("Producto: " + nombres[i] + "Cantidad disponible: " + cantidad[i]);
+            System.out.println("Producto: " + nombres[i] + " Cantidad disponible: " + cantidad[i]);
         }
     }
     public static int BuscarProducto(String producto){
